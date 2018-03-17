@@ -1,0 +1,12 @@
+{
+    "name": "burzum/cakephp-service-layer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Florian Krämer"
+        }
+    ],
+    "require": {
+        "cakephp/cakephp": "^3.5"
+    }
+}
