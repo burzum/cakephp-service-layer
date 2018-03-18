@@ -36,7 +36,7 @@ trait ServicePaginatorTrait
      *
      * @var string
      */
-    protected $_defaultPaginator = Paginator::class;
+    protected $_defaultPaginatorClass = Paginator::class;
 
     /**
      * Set paginator instance.
@@ -59,7 +59,8 @@ trait ServicePaginatorTrait
     public function getPaginator()
     {
         if (empty($this->_paginator)) {
-            $this->_paginator = new $this->_defaultPaginator();
+            $class = $this->_defaultPaginatorClass;
+            $this->_paginator = new $class();
         }
 
         return $this->_paginator;
@@ -103,7 +104,10 @@ trait ServicePaginatorTrait
     }
 
     /**
-     * addPagingParamToRequest
+     * Adds the paginator params to the request objects params
+     *
+     * @param \Cake\Http\ServerRequest $request
+     * @return void
      */
     public function addPagingParamToRequest(ServerRequest &$request)
     {
