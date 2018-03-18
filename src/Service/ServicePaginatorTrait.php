@@ -47,6 +47,7 @@ trait ServicePaginatorTrait
     public function setPaginator(Paginator $paginator)
     {
         $this->_paginator = $paginator;
+
         return $this;
     }
 
@@ -60,6 +61,7 @@ trait ServicePaginatorTrait
         if (empty($this->_paginator)) {
             $this->_paginator = new $this->_defaultPaginator();
         }
+
         return $this->_paginator;
     }
 
@@ -78,21 +80,25 @@ trait ServicePaginatorTrait
             'object',
             'params'
         ));
+
         if ($params instanceof ServerRequest) {
             $request = $params;
             $params = $request->getQueryParams();
         }
+
         $result = $this->getPaginator()->paginate($object, $params);
         $pagingParams = $this->getPaginator()->getPagingParams();
         if ($request instanceof ServerRequest) {
             $this->addPagingParamToRequest($request);
         }
+
         $this->dispatchEvent('ServicePagination.afterPaginate', compact(
             'object',
             'params',
             'result',
             'pagingParams'
         ));
+
         return $result;
     }
 

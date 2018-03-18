@@ -1,5 +1,6 @@
 {
     "name": "burzum/cakephp-service-layer",
+    "type": "cakephp-plugin",
     "license": "MIT",
     "authors": [
         {
@@ -8,5 +9,16 @@
     ],
     "require": {
         "cakephp/cakephp": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Burzum\\CakePHP\\Service\\": "src\\Service",
+            "Burzum\\CakePHP\\Test\\Fixture\\": "tests\\Fixture"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Burzum\\CakePHP\\Test\\": "tests"
+        }
     }
 }

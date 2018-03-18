@@ -18,8 +18,11 @@ namespace Burzum\Cake\Service;
 use Cake\Core\App;
 use Cake\Core\ObjectRegistry;
 use RuntimeException;
+
 /**
  * Service Locator
+ *
+ * CakePHP style locator to load service classes
  */
 class ServiceLocator extends ObjectRegistry
 {

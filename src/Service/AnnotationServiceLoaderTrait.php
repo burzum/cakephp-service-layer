@@ -19,7 +19,11 @@ use Cake\Datasource\ModelAwareTrait;
 use ReflectionClass;
 
 /**
- * Service Aware Trait
+ * Loads Services via Annotations
+ *
+ * While I'm personally not a big fan of using annotations for anything
+ * some people like them. Well, I don't have to use it and it was easy to
+ * implement.
  */
 trait AnnotationServiceLoaderTrait
 {
