@@ -78,6 +78,7 @@ class ServiceLocator extends ObjectRegistry
         if (empty($config)) {
             return new $class;
         }
+
         return new $class(...$config);
     }
 }

@@ -16,6 +16,7 @@ declare(strict_types = 1);
 namespace Burzum\Cake\Service;
 
 use Cake\Datasource\Paginator;
+use Cake\Datasource\PaginatorInterface;
 use Cake\Event\EventDispatcherTrait;
 use Cake\Http\ServerRequest;
 
@@ -41,10 +42,10 @@ trait ServicePaginatorTrait
     /**
      * Set paginator instance.
      *
-     * @param \Cake\Datasource\Paginator $paginator Paginator instance.
+     * @param \Cake\Datasource\PaginatorInterface $paginator Paginator instance.
      * @return self
      */
-    public function setPaginator(Paginator $paginator)
+    public function setPaginator(PaginatorInterface $paginator)
     {
         $this->_paginator = $paginator;
 
@@ -60,7 +61,7 @@ trait ServicePaginatorTrait
     {
         if (empty($this->_paginator)) {
             $class = $this->_defaultPaginatorClass;
-            $this->_paginator = new $class();
+            $this->setPaginator(new $class());
         }
 
         return $this->_paginator;
@@ -71,9 +72,8 @@ trait ServicePaginatorTrait
      *
      * @param \Cake\Datasource\RepositoryInterface|\Cake\Datasource\QueryInterface $object The table or query to paginate.
      * @param array $params Request params or the request object itself
-     * @param null|\Cake\Http\ServerRequest $request
+     * @param null|\Cake\Http\ServerRequest $request Request object
      * @return \Cake\Datasource\ResultSetInterface Query results
-     * @throws \Cake\ORM\Exception\PageOutOfBoundsException.
      */
     public function paginate($object, $params, $request = null)
     {
@@ -106,7 +106,7 @@ trait ServicePaginatorTrait
     /**
      * Adds the paginator params to the request objects params
      *
-     * @param \Cake\Http\ServerRequest $request
+     * @param \Cake\Http\ServerRequest $request Request object
      * @return void
      */
     public function addPagingParamToRequest(ServerRequest &$request)

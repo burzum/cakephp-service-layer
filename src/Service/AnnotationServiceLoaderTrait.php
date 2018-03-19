@@ -31,11 +31,19 @@ trait AnnotationServiceLoaderTrait
     use ModelAwareTrait;
     use ServiceAwareTrait;
 
+    /**
+     * Loads services from doc block annotations
+     *
+     * Put this in the constructor of a class or an initialize() method if available
+     *
+     * @return void
+     */
     public function loadServicesFromAnnotation()
     {
         $reflector = new ReflectionClass($this);
         $docBlock = $reflector->getDocComment();
         $docBlock = explode("\n", $docBlock);
+
         foreach ($docBlock as $line) {
             if (preg_match('/\@service [a-z]+/i', $line, $match)) {
                 $this->loadService(substr($match[0], 9));
