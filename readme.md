@@ -24,16 +24,26 @@ CakePHP by default uses locators instead of a dependency injection container. Th
 There is also a ServicePaginatorTrait that allows you to use pagination inside your services with repository objects like the table objects.
 
 ```php
-class FooController extends Controller
+use Burzum\Cake\Service\ServiceAwareTrait;
+
+class AppController extends Controller
 {
     use ServiceAwareTrait;
+}
+
+class FooController extends AppController
+{
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadService('SomeService');
+    }
 
     /**
      * Get a list of something for the current logged in user
      */
     public function index()
     {
-        $this->loadService('SomeService');
         $this->set('results', $this->SomeService->listingForUser(
             $this->Auth->user('id')
             $this->request
@@ -41,6 +51,8 @@ class FooController extends Controller
     }
 }
 ```
+
+If there is already a property with the name of the service used in the controller a warning will be thrown. In an ideal case your controller won't have to use any table instances anyway when using services. The tables are not a concern of the controller.
 
 ## Why no DI container?
 
