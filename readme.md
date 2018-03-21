@@ -11,7 +11,7 @@ This is more a design pattern and conceptual idea than a lot of code and will im
 
 The rule of thumb in any MVC framework is basically "fat models, skinny controllers".
 
-While this works pretty well the abstraction can be done even better by separating for example the DB operations from the actual business logic. Most Cake developers probably use the table objects as a bucket for everything. This is, strictly speaking, not correct. A table object should just encapsulate whatever is in the direct concern of that table. Queries related to that table, custom finders and so on.
+While this works pretty well the abstraction can be done even better by separating for example the DB operations from the actual [business logic](https://en.wikipedia.org/wiki/Business_logic). Most Cake developers probably use the table objects as a bucket for everything. This is, strictly speaking, not correct. A table object should just encapsulate whatever is in the direct concern of that table. Queries related to that table, custom finders and so on. Some of the principles we want to follow are [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) and [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle). A service layer helps with that.
 
 The service class, a custom made class, not part of the CakePHP framework, would implement the real business logic and do any kind of calculations or whatever else logic operations need to be done and pass the result back to the controller which would then pass that result to the view.
 
