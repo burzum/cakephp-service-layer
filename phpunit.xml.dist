@@ -23,7 +23,7 @@
     </listeners>
 
     <testsuites>
-        <testsuite name="ElasticSearch">
+        <testsuite name="CakePHP Services">
             <directory>./tests/TestCase/</directory>
         </testsuite>
     </testsuites>

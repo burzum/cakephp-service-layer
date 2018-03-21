@@ -16,13 +16,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Burzum\\CakePHP\\Service\\": "src\\Service",
-            "Burzum\\CakePHP\\Test\\Fixture\\": "tests\\Fixture"
+            "Burzum\\Cake\\Service\\": "src\\Service"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Burzum\\CakePHP\\Test\\": "tests"
+            "App\\": "tests/test_app/TestApp",
+            "Burzum\\Cake\\Test\\": "tests",
+            "Cake\\Test\\Fixture\\": "vendor/cakephp/cakephp/tests/Fixture"
         }
     }
 }

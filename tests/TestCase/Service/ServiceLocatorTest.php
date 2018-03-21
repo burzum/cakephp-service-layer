@@ -15,6 +15,7 @@ declare(strict_types = 1);
 
 namespace Burzum\Cake\Service;
 
+use App\Service\TestService;
 use Cake\TestSuite\TestCase;
 
 /**
@@ -22,5 +23,28 @@ use Cake\TestSuite\TestCase;
  */
 class ServiceLocatorTest extends TestCase
 {
-    public $fixtures = [];
+    /**
+     * testLocate
+     *
+     * @return void
+     */
+    public function testLocate()
+    {
+        $locator = new ServiceLocator();
+        $service = $locator->load('Test');
+        $this->assertInstanceOf(TestService::class, $service);
+    }
+
+    /**
+     * testLocateClassNotFound
+     *
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage Service class `DoesNotExist` not found.
+     * @return void
+     */
+    public function testLocateClassNotFound()
+    {
+        $locator = new ServiceLocator();
+        $locator->load('DoesNotExist');
+    }
 }

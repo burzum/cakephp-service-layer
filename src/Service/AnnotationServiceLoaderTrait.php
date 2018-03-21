@@ -27,7 +27,6 @@ use ReflectionClass;
  */
 trait AnnotationServiceLoaderTrait
 {
-
     use ModelAwareTrait;
     use ServiceAwareTrait;
 
