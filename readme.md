@@ -1,7 +1,7 @@
 #  A Service Layer for CakePHP
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
-[![Build Status](https://img.shields.io/travis/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://travis-ci.org/burzum/cakephp-service-layer)
+[![Build Status](https://img.shields.io/scrutinizer/build/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/)
 [![Coverage Status](https://img.shields.io/coveralls/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://coveralls.io/r/burzum/cakephp-service-layer)
 [![Code Quality](https://img.shields.io/scrutinizer/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://coveralls.io/r/burzum/cakephp-service-layer)
 
