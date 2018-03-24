@@ -1,10 +1,33 @@
 imports:
     - php
 
+build:
+    project_setup:
+        before:
+            - sudo composer self-update
+            - composer --version
+
+    nodes:
+        php:
+            environment:
+                php: '7.0'
+
+        php71:
+            environment:
+                php: '7.1'
+            tests:
+                override:
+                    -
+                        command: 'vendor/bin/phpunit --coverage-clover=coverage.xml'
+                        coverage:
+                            file: 'coverage.xml'
+                            format: 'clover'
+
 filter:
     excluded_paths:
         - docs/
         - tests/
+
 tools:
     php_mess_detector: true
     php_cpd:

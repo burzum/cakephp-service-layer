@@ -24,14 +24,14 @@ use Cake\ORM\Table;
  */
 class ArticlesTable extends Table
 {
-    use ModelAwareTrait;
-    use ServicePaginatorTrait;
-
     /**
-     * Constructor
+     * Initialize
+     *
+     * @param array $config Config
+     * @return void
      */
-    public function __construct()
+    public function initialize(array $config = [])
     {
-        $this->initialize();
+        parent::initialize($config);
     }
 }
