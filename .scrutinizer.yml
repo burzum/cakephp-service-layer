@@ -6,8 +6,6 @@ build:
         before:
             - sudo composer self-update
             - composer --version
-            - composer global require hirak/prestissimo --no-plugins
-            - composer update
 
     nodes:
         php:
