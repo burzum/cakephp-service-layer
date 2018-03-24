@@ -17,6 +17,12 @@ The service class, a custom made class, not part of the CakePHP framework, would
 
 This ensures that each part of the code is easy to test and exchange. For example the service is as well usable in a shell app because it doesn't depend on the controller. If well separated you could, in theory, have a plugin with all your table objects and share it between two apps because the application logic, specific to each app, would be implemented in the service player *not* in the table objects.
 
+[Martin Fowler's](https://en.wikipedia.org/wiki/Martin_Fowler) book "[Patterns of Enterprise Architecture](https://martinfowler.com/books/eaa.html)" states:
+
+> The easier question to answer is probably when not to use it. You probably don't need a Service Layer if your application's business logic will only have one kind of client - say, a user interface - and it's use case responses don't involve multiple transactional resources. [...]
+> 
+> But as soon as you envision a second kind of client, or a second transactional resource in use case responses, it pays to design in a Service Layer from the beginning.
+
 ## How to use it
 
 CakePHP by default uses locators instead of a dependency injection container. This plugin gives you a CakePHP fashioned service locator and a trait so you can simply load services anywhere in your application by using the trait.
