@@ -71,34 +71,36 @@ trait ServicePaginatorTrait
      * Paginate
      *
      * @param \Cake\Datasource\RepositoryInterface|\Cake\Datasource\QueryInterface $object The table or query to paginate.
-     * @param array $params Request params or the request object itself
-     * @param null|\Cake\Http\ServerRequest $request Request object
+     * @param array $params Request params
+     * @param array $settings The settings/configuration used for pagination.
      * @return \Cake\Datasource\ResultSetInterface Query results
      */
-    public function paginate($object, $params, $request = null)
+    public function paginate($object, array $params = [], array $settings = [])
     {
-        $this->dispatchEvent('ServicePagination.beforePaginate', compact(
-            'object',
-            'params'
-        ));
-
-        if ($params instanceof ServerRequest) {
-            $request = $params;
-            $params = $request->getQueryParams();
-        }
-
-        $result = $this->getPaginator()->paginate($object, $params);
-        $pagingParams = $this->getPaginator()->getPagingParams();
-        if ($request instanceof ServerRequest) {
-            $this->addPagingParamToRequest($request);
-        }
-
-        $this->dispatchEvent('ServicePagination.afterPaginate', compact(
+        $event = $this->dispatchEvent('Service.beforePaginate', compact(
             'object',
             'params',
+            'settings'
+        ));
+
+        if ($event->isStopped()) {
+            return $event->getResult();
+        }
+
+        $result = $this->getPaginator()->paginate($object, $params, $settings);
+        $pagingParams = $this->getPaginator()->getPagingParams();
+
+        $event = $this->dispatchEvent('Service.afterPaginate', compact(
+            'object',
+            'params',
+            'settings',
             'result',
             'pagingParams'
         ));
+
+        if ($event->getResult() !== null) {
+            return $event->getResult();
+        }
 
         return $result;
     }
@@ -112,7 +114,7 @@ trait ServicePaginatorTrait
     public function addPagingParamToRequest(ServerRequest &$request)
     {
         $request->addParams([
-            'paging' => $this->_paginator->getPagingParams()
+            'paging' => $this->getPaginator()->getPagingParams()
                 + (array)$request->getParam('paging')
         ]);
     }

@@ -59,6 +59,7 @@ class ServiceLocator extends ObjectRegistry
                 $class
             );
         }
+
         throw new RuntimeException($message);
     }
 

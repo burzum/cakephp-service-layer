@@ -25,18 +25,35 @@ class ArticlesService
     use ModelAwareTrait;
     use ServicePaginatorTrait;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->initialize();
     }
 
+    /**
+     * Initialize
+     *
+     * @return void
+     */
     public function initialize()
     {
         $this->loadModel('Articles');
     }
 
-    public function listing()
+    /**
+     * List articles
+     *
+     * @return \Cake\Datasource\ResultSetInterface|array
+     */
+    public function listing($request)
     {
+        $query = $this->Articles->find();
+        $result = $this->paginate($query);
+        $this->addPagingParamToRequest($request);
 
+        return $result;
     }
 }
