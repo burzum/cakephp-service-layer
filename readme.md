@@ -62,7 +62,7 @@ If there is already a property with the name of the service used in the controll
 
 ## Why no DI container?
 
-You could archive the very same by using a DI container of your choice but there was never really a need to do so before, the locators work just fine as well and they're less bloat than adding a full DI container lib. There was no need to add a DI container to any CakePHP app in the past ~10 years for me, not even in big projects with 500+ tables. One of the core concepts of CakePHP is to go by conventions over wiring things together in a huge DI config or using a container all over the place that is in most cases anyway just used like a super global bucket by many developers.
+You could achieve the very same by using a DI container of your choice but there was never really a need to do so before, the locators work just fine as well and they're less bloat than adding a full DI container lib. There was no need to add a DI container to any CakePHP app in the past ~10 years for me, not even in big projects with 500+ tables. One of the core concepts of CakePHP is to go by conventions over wiring things together in a huge DI config or using a container all over the place that is in most cases anyway just used like a super global bucket by many developers.
 
 This is of course a very opinionated topic, so if you disagree and want to go for a DI container, feel free to do so! It's awesome to have a choice!
 
@@ -70,6 +70,7 @@ DI plugins for CakePHP:
 
  * [Piping Bag](https://github.com/lorenzo/piping-bag)
  * [Pimple DI](https://github.com/rochamarcelo/cake-pimple-di)
+ * [CakePHP DI Generic PSR 11 Adapter](https://github.com/robotusers/cakephp-di)
 
 ## License
 
