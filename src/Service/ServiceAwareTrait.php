@@ -39,14 +39,20 @@ trait ServiceAwareTrait
     protected $defaultServiceLocator = ServiceLocator::class;
 
     /**
-     * Load a service into a class property
+     * Load a service
      *
-     * @param string $service Service name
+     * @param string $service Service Name
+     * @param array $constructorArgs Constructor Args
+     * @param bool $assignProperty Assigns the service to a class property of the same name as  the service
      * @return \stdClass
      */
-    public function loadService($service)
+    public function loadService($service, array $constructorArgs = [], $assignProperty = false)
     {
-        $service = $this->getServiceLocator()->load($service);
+        $service = $this->getServiceLocator()->load($service, $constructorArgs);
+
+        if (!$assignProperty) {
+            return $service;
+        }
 
         list(, $name) = pluginSplit($service);
 
