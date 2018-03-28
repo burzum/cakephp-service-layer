@@ -2,8 +2,8 @@
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
 [![Build Status](https://img.shields.io/scrutinizer/build/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/)
-[![Coverage Status](https://img.shields.io/coveralls/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://coveralls.io/r/burzum/cakephp-service-layer)
-[![Code Quality](https://img.shields.io/scrutinizer/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://coveralls.io/r/burzum/cakephp-service-layer)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
+[![Code Quality](https://img.shields.io/scrutinizer/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
 
 This is more a design pattern and conceptual idea than a lot of code and will improve the maintainability of your code base. This plugin just provides some classes to help you applying this concept in the CakePHP framework following the way of convention over configuration.
 
