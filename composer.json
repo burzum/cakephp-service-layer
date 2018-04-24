@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Burzum\\Cake\\Service\\": "src\\Service"
+            "Burzum\\Cake\\": "src"
         }
     },
     "autoload-dev": {
