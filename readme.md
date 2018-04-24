@@ -71,6 +71,8 @@ DI plugins for CakePHP:
  * [Piping Bag](https://github.com/lorenzo/piping-bag)
  * [Pimple DI](https://github.com/rochamarcelo/cake-pimple-di)
  * [CakePHP DI Generic PSR 11 Adapter](https://github.com/robotusers/cakephp-di)
+ 
+You might find more DI plugins in the [Awesome CakePHP list of plugins](https://github.com/FriendsOfCake/awesome-cakephp#dependency-injection).
 
 ## License
 
