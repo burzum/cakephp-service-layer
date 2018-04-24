@@ -23,6 +23,12 @@ This ensures that each part of the code is easy to test and exchange. For exampl
 > 
 > But as soon as you envision a second kind of client, or a second transactional resource in use case responses, it pays to design in a Service Layer from the beginning.
 
+There is a simple paragraph [on this page](https://blog.fedecarg.com/2009/03/11/domain-driven-design-and-mvc-architectures/) that explains pretty well why DDD in MVC is a pretty abstract and very opinionated topic:
+
+> According to Eric Evans, Domain-driven design (DDD) is not a technology or a methodology. It’s a different way of thinking about how to organize your applications and structure your code. This way of thinking complements very well the popular MVC architecture. The domain model provides a structural view of the system. Most of the time, applications don’t change, what changes is the domain. **MVC, however, doesn’t really tell you how your model should be structured. That’s why some frameworks don’t force you to use a specific model structure, instead, they let your model evolve as your knowledge and expertise grows.**
+
+CakePHP doesn't feature a template structure of any DDD or service layer architecture for that reason. It's basically up to you. This plugin provides you *one possible* implementation. It's not carved in stone, nor do you have to agree with it.
+
 ## How to use it
 
 CakePHP by default uses locators instead of a dependency injection container. This plugin gives you a CakePHP fashioned service locator and a trait so you can simply load services anywhere in your application by using the trait.
