@@ -35,6 +35,7 @@ CakePHP by default uses locators instead of a dependency injection container. Th
 
 There is also a ServicePaginatorTrait that allows you to use pagination inside your services with repository objects like the table objects.
 
+The following example uses a `SomeServiceNameService` class:
 ```php
 use Burzum\Cake\Service\ServiceAwareTrait;
 
@@ -48,7 +49,7 @@ class FooController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->loadService('SomeService');
+        $this->loadService('SomeServiceName');
     }
 
     /**
@@ -56,7 +57,7 @@ class FooController extends AppController
      */
     public function index()
     {
-        $this->set('results', $this->SomeService->listingForUser(
+        $this->set('results', $this->SomeServiceName->listingForUser(
             $this->Auth->user('id')
             $this->request
         ));
