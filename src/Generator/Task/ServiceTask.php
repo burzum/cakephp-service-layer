@@ -10,7 +10,7 @@
  * @since         1.0.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Burzum\Cake\Generator\Task;
 
@@ -25,6 +25,8 @@ use IdeHelper\Generator\Task\TaskInterface;
 class ServiceTask implements TaskInterface
 {
     /**
+     * Aliases
+     *
      * @var array
      */
     protected $aliases = [
@@ -55,7 +57,7 @@ class ServiceTask implements TaskInterface
         $map = [];
 
         $services = $this->collectServices();
-        foreach ($services as $service => $className){
+        foreach ($services as $service => $className) {
             $map[$service] = '\\' . $className . '::class';
         }
 
@@ -97,9 +99,9 @@ class ServiceTask implements TaskInterface
     }
 
     /**
-     * @param array $services
-     * @param string $folder
-     * @param string|null $plugin
+     * @param array $services Services array
+     * @param string $folder Folder
+     * @param string|null $plugin Plugin
      * @return string[]
      */
     protected function addServices(array $services, $folder, $plugin = null)

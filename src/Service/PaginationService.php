@@ -20,7 +20,8 @@ use Cake\Http\ServerRequest;
 /**
  * Pagination Service
  */
-class PaginationService {
+class PaginationService
+{
 
     use ServicePaginatorTrait;
 
@@ -41,7 +42,7 @@ class PaginationService {
         $this->request = $request;
 
         $_this = $this;
-        $this->getEventManager()->on('Service.afterPaginate', function() use ($_this) {
+        $this->getEventManager()->on('Service.afterPaginate', function () use ($_this) {
             $_this->addPagingParamToRequest($_this->request);
         });
     }
