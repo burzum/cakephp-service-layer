@@ -64,9 +64,10 @@ class PaginationServiceTest extends TestCase
                 'limit' => null,
                 'sortDefault' => false,
                 'directionDefault' => false,
-                'scope' => null
+                'scope' => null,
+                'completeSort' => []
             ],
-            0 => false
+            false
         ];
         $this->assertInternalType('array', $params);
         $this->assertEquals($expected, $params);

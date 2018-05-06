@@ -44,14 +44,14 @@ trait ServiceAwareTrait
      * @param string $service Service Name
      * @param array $constructorArgs Constructor Args
      * @param bool $assignProperty Assigns the service to a class property of the same name as  the service
-     * @return \stdClass
+     * @return object
      */
-    public function loadService($service, array $constructorArgs = [], $assignProperty = false)
+    public function loadService($service, array $constructorArgs = [], $assignProperty = true)
     {
-        $service = $this->getServiceLocator()->load($service, $constructorArgs);
+        $serviceInstance = $this->getServiceLocator()->load($service, $constructorArgs);
 
         if (!$assignProperty) {
-            return $service;
+            return $serviceInstance;
         }
 
         list(, $name) = pluginSplit($service);
@@ -60,9 +60,9 @@ trait ServiceAwareTrait
             trigger_error(__CLASS__ . '::$%s is already in use.', E_USER_WARNING);
         }
 
-        $this->{$name} = $service;
+        $this->{$name} = $serviceInstance;
 
-        return $service;
+        return $serviceInstance;
     }
 
     /**

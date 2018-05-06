@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="./tests/bootstrap.php"
+         bootstrap="tests/bootstrap.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -12,10 +12,14 @@
          stopOnIncomplete="false"
          stopOnSkipped="false"
          syntaxCheck="false">
+    <php>
+        <!-- E_ALL & ~E_USER_DEPRECATED (16383)-->
+        <!-- E_ALL (32767) -->
+        <ini name="error_reporting" value="16383"/>
+    </php>
 
     <listeners>
-        <listener class="\Cake\TestSuite\Fixture\FixtureInjector"
-                  file="./vendor/cakephp/cakephp/src/TestSuite/Fixture/FixtureInjector.php">
+        <listener class="\Cake\TestSuite\Fixture\FixtureInjector">
             <arguments>
                 <object class="\Cake\TestSuite\Fixture\FixtureManager" />
             </arguments>
@@ -23,14 +27,14 @@
     </listeners>
 
     <testsuites>
-        <testsuite name="CakePHP Services">
-            <directory>./tests/TestCase/</directory>
+        <testsuite name="service-layer">
+            <directory>tests/TestCase/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
       <whitelist processUncoveredFilesFromWhitelist="true">
-        <directory suffix=".php">./src</directory>
+        <directory suffix=".php">src/</directory>
       </whitelist>
     </filter>
 </phpunit>

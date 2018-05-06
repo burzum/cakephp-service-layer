@@ -11,19 +11,20 @@
         "cakephp/cakephp": "^3.5"
     },
     "require-dev": {
+        "dereuromark/cakephp-ide-helper": "@stable",
         "phpunit/phpunit": "^5.7.14|^6.0",
         "cakephp/cakephp-codesniffer": "^3.0"
     },
     "autoload": {
         "psr-4": {
-            "Burzum\\Cake\\": "src"
+            "Burzum\\Cake\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\": "tests/test_app/TestApp",
-            "Burzum\\Cake\\Test\\": "tests",
-            "Cake\\Test\\Fixture\\": "vendor/cakephp/cakephp/tests/Fixture"
+            "App\\": "tests/test_app/src/",
+            "Burzum\\Cake\\Test\\": "tests/",
+            "Cake\\Test\\Fixture\\": "vendor/cakephp/cakephp/tests/Fixture/"
         }
     }
 }
