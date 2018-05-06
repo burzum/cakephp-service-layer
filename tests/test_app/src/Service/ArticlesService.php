@@ -14,6 +14,7 @@
 declare(strict_types = 1);
 
 namespace App\Service;
+
 use Burzum\Cake\Service\ServicePaginatorTrait;
 use Cake\Datasource\ModelAwareTrait;
 

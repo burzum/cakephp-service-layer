@@ -17,6 +17,7 @@ build:
                 php: '7.1'
             tests:
                 override:
+                    - php-scrutinizer-run --enable-security-analysis
                     -
                         command: 'vendor/bin/phpunit --coverage-clover=coverage.xml'
                         coverage:
