@@ -30,11 +30,11 @@ class ServiceLocator extends ObjectRegistry
      * Should resolve the class name for a given object type.
      *
      * @param string $class The class to resolve.
-     * @return string|bool The resolved name or false for failure.
+     * @return string|null The resolved name or null for failure.
      */
     protected function _resolveClassName($class)
     {
-        return App::className($class, 'Service', 'Service');
+        return App::className($class, 'Service', 'Service') ?: null;
     }
 
     /**
@@ -72,12 +72,12 @@ class ServiceLocator extends ObjectRegistry
      * @param string $class The class to build.
      * @param string $alias The alias of the object.
      * @param array $config The Configuration settings for construction
-     * @return mixed
+     * @return object
      */
     protected function _create($class, $alias, $config)
     {
         if (empty($config)) {
-            return new $class;
+            return new $class();
         }
 
         return new $class(...$config);

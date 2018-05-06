@@ -27,7 +27,7 @@ class PaginationService {
     /**
      * Server Request Object
      *
-     * @var \Cake\Http\ServerRequest|null $request Server Request
+     * @var \Cake\Http\ServerRequest $request Server Request
      */
     protected $request;
 

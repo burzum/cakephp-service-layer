@@ -11,7 +11,7 @@ This is more a **design pattern** and **conceptual idea** than a lot of code and
 
 The rule of thumb in any MVC framework is basically "fat models, skinny controllers".
 
-While this works pretty well the abstraction can be done even better by separating for example the DB operations from the actual [business logic](https://en.wikipedia.org/wiki/Business_logic). Most Cake developers probably use the table objects as a bucket for everything. This is, strictly speaking, not correct. A table object should just encapsulate whatever is in the direct concern of that table. Queries related to that table, custom finders and so on. Some of the principles we want to follow are [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) and [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle). A service layer helps with that.
+While this works pretty well the abstraction can be done even better by separating for example the DB operations from the actual [business logic](https://en.wikipedia.org/wiki/Business_logic). Most Cake developers probably use the table objects as a bucket for everything. This is, strictly speaking, not correct. A table object should just encapsulate whatever is in the direct concern of that table. Queries related to that table, custom finders and so on. Some of the principles we want to follow are [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) and [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle). The `Model` folder in CakePHP represents the [Data Model](https://en.wikipedia.org/wiki/Data_model) and should not be used to add things outside of this conern to it. A service layer helps with that.
 
 The service class, a custom made class, not part of the CakePHP framework, would implement the real business logic and do any kind of calculations or whatever else logic operations need to be done and pass the result back to the controller which would then pass that result to the view.
 
@@ -35,6 +35,7 @@ CakePHP by default uses locators instead of a dependency injection container. Th
 
 There is also a ServicePaginatorTrait that allows you to use pagination inside your services with repository objects like the table objects.
 
+The following example uses a `SomeServiceNameService` class:
 ```php
 use Burzum\Cake\Service\ServiceAwareTrait;
 
@@ -48,7 +49,7 @@ class FooController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->loadService('SomeService');
+        $this->loadService('SomeServiceName');
     }
 
     /**
@@ -56,7 +57,7 @@ class FooController extends AppController
      */
     public function index()
     {
-        $this->set('results', $this->SomeService->listingForUser(
+        $this->set('results', $this->SomeServiceName->listingForUser(
             $this->Auth->user('id')
             $this->request
         ));
