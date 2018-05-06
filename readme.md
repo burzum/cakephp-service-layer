@@ -1,11 +1,11 @@
-#  A Service Layer for CakePHP
+#  A Service Layer & DDD for CakePHP
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
 [![Build Status](https://img.shields.io/scrutinizer/build/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
 [![Code Quality](https://img.shields.io/scrutinizer/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
 
-This is more a design pattern and conceptual idea than a lot of code and will improve the maintainability of your code base. This plugin just provides some classes to help you applying this concept in the CakePHP framework following the way of convention over configuration.
+This is more a **design pattern** and **conceptual idea** than a lot of code and will *improve the maintainability* of your code base. This plugin just provides some classes to help you applying this concept in the CakePHP framework following the way of the framework of convention over configuration.
 
 ## Introduction
 
@@ -27,7 +27,7 @@ There is a simple paragraph [on this page](https://blog.fedecarg.com/2009/03/11/
 
 > According to Eric Evans, Domain-driven design (DDD) is not a technology or a methodology. It’s a different way of thinking about how to organize your applications and structure your code. This way of thinking complements very well the popular MVC architecture. The domain model provides a structural view of the system. Most of the time, applications don’t change, what changes is the domain. **MVC, however, doesn’t really tell you how your model should be structured. That’s why some frameworks don’t force you to use a specific model structure, instead, they let your model evolve as your knowledge and expertise grows.**
 
-CakePHP doesn't feature a template structure of any DDD or service layer architecture for that reason. It's basically up to you. This plugin provides you *one possible* implementation. It's not carved in stone, nor do you have to agree with it.
+CakePHP doesn't feature a template structure of any DDD or service layer architecture for that reason. It's basically up to you. This plugin provides you *one possible* implementation. It's not carved in stone, nor do you have to agree with it. Consider this plugin as a suggestion or template for the implementation and as a guidance for developers who care about maintainable code but don't know how to further improve their code base yet.
 
 ## How to use it
 
