@@ -15,7 +15,7 @@ declare(strict_types = 1);
 
 namespace Burzum\Cake\Service;
 
-use App\Model\Business\Article;
+use App\DomainModel\Article;
 use Burzum\Cake\DomainModel\DomainModelLocator;
 use Cake\TestSuite\TestCase;
 
@@ -40,7 +40,7 @@ class DomainModelLocatorTest extends TestCase
      * testLocateClassNotFound
      *
      * @expectedException \RuntimeException
-     * @expectedExceptionMessage Business Model class `DoesNotExist` not found.
+     * @expectedExceptionMessage Domain Model class `DoesNotExist` not found.
      * @return void
      */
     public function testLocateClassNotFound()

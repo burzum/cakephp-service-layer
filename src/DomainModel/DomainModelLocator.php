@@ -34,7 +34,7 @@ class DomainModelLocator extends ObjectRegistry
      */
     protected function _resolveClassName($class)
     {
-        return App::className($class, 'Model/Domain');
+        return App::className($class, 'DomainModel');
     }
 
     /**
