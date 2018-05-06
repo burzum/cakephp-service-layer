@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Model\Business;
+namespace Burzum\Cake\DomainModel;
 
 use Cake\Core\ObjectRegistry;
 
@@ -22,7 +22,7 @@ use Cake\Core\ObjectRegistry;
  *
  * CakePHP style locator to load domain model classes
  */
-trait BusinessModelAwareTrait
+trait DomainModelAwareTrait
 {
     /**
      * Service Locator Registry
@@ -36,7 +36,7 @@ trait BusinessModelAwareTrait
      *
      * @var string
      */
-    protected $defaultDomainModelLocator = BusinessModelLocator::class;
+    protected $defaultDomainModelLocator = DomainModelLocator::class;
 
     /**
      * Load a Domain Model
@@ -48,7 +48,7 @@ trait BusinessModelAwareTrait
      */
     public function loadService($model, array $constructorArgs = [], $assignProperty = false)
     {
-        $domainModel = $this->getBusinessModelLocator()->load($model, $constructorArgs);
+        $domainModel = $this->getDomainModelLocator()->load($model, $constructorArgs);
 
         if (!$assignProperty) {
             return $domainModel;
@@ -70,7 +70,7 @@ trait BusinessModelAwareTrait
      *
      * @return \Cake\Core\ObjectRegistry
      */
-    public function getBusinessModelLocator()
+    public function getDomainModelLocator()
     {
         if (empty($this->serviceLocator)) {
             $class = $this->defaultDomainModelLocator;
@@ -81,12 +81,12 @@ trait BusinessModelAwareTrait
     }
 
     /**
-     * Sets the business model locator
+     * Sets the Domain model locator
      *
      * @param \Cake\Core\ObjectRegistry $locator Locator
      * @return void
      */
-    public function setBusinessModelLocator(ObjectRegistry $locator)
+    public function setDomainModelLocator(ObjectRegistry $locator)
     {
         $this->domainModelLocator = $locator;
     }

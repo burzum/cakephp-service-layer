@@ -16,13 +16,13 @@ declare(strict_types = 1);
 namespace Burzum\Cake\Service;
 
 use App\Model\Business\Article;
-use Burzum\Cake\Model\Business\BusinessModelLocator;
+use Burzum\Cake\DomainModel\DomainModelLocator;
 use Cake\TestSuite\TestCase;
 
 /**
  * ServiceLocatorTest
  */
-class BusinessModelLocatorTest extends TestCase
+class DomainModelLocatorTest extends TestCase
 {
     /**
      * testLocate
@@ -31,7 +31,7 @@ class BusinessModelLocatorTest extends TestCase
      */
     public function testLocate()
     {
-        $locator = new BusinessModelLocator();
+        $locator = new DomainModelLocator();
         $service = $locator->load('Article');
         $this->assertInstanceOf(Article::class, $service);
     }
@@ -45,7 +45,7 @@ class BusinessModelLocatorTest extends TestCase
      */
     public function testLocateClassNotFound()
     {
-        $locator = new BusinessModelLocator();
+        $locator = new DomainModelLocator();
         $locator->load('DoesNotExist');
     }
 }

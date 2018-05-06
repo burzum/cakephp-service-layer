@@ -13,18 +13,18 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Model\Business;
+namespace Burzum\Cake\DomainModel;
 
 use Cake\Core\App;
 use Cake\Core\ObjectRegistry;
 use RuntimeException;
 
 /**
- * Business Model Locator
+ * Domain Model Locator
  *
  * CakePHP style locator to load service classes
  */
-class BusinessModelLocator extends ObjectRegistry
+class DomainModelLocator extends ObjectRegistry
 {
     /**
      * Should resolve the class name for a given object type.
@@ -34,7 +34,7 @@ class BusinessModelLocator extends ObjectRegistry
      */
     protected function _resolveClassName($class)
     {
-        return App::className($class, 'Model/Business');
+        return App::className($class, 'Model/Domain');
     }
 
     /**
@@ -49,13 +49,13 @@ class BusinessModelLocator extends ObjectRegistry
     {
         if (!empty($plugin)) {
             $message = sprintf(
-                'Business Model class `%s` in plugin `%s` not found.',
+                'Domain Model class `%s` in plugin `%s` not found.',
                 $class,
                 $plugin
             );
         } else {
             $message = sprintf(
-                'Business Model class `%s` not found.',
+                'Domain Model class `%s` not found.',
                 $class
             );
         }
