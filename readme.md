@@ -53,15 +53,15 @@ class FooController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->loadService('SomeServiceName');
+        $this->loadService('Articles');
     }
 
     /**
-     * Get a list of something for the current logged in user
+     * Get a list of articles for the current logged in user
      */
     public function index()
     {
-        $this->set('results', $this->SomeServiceName->listingForUser(
+        $this->set('results', $this->Articles->getListingForUser(
             $this->Auth->user('id')
             $this->request
         ));
