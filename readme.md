@@ -15,7 +15,7 @@ While this works pretty well the abstraction can be done even better by separati
 
 The service class, a custom made class, not part of the CakePHP framework, would implement the real business logic and do any kind of calculations or whatever else logic operations need to be done and pass the result back to the controller which would then pass that result to the view.
 
-This ensures that each part of the code is easy to test and exchange. For example the service is as well usable in a shell app because it doesn't depend on the controller. If well separated you could, in theory, have a plugin with all your table objects and share it between two apps because the application logic, specific to each app, would be implemented in the service player *not* in the table objects.
+This ensures that each part of the code is easy to test and exchange. For example the service is as well usable in a shell app because it doesn't depend on the controller. If well separated you could, in theory, have a plugin with all your table objects and share it between two apps because the application logic, specific to each app, would be implemented in the service layer *not* in the table objects.
 
 [Martin Fowler's](https://en.wikipedia.org/wiki/Martin_Fowler) book "[Patterns of Enterprise Architecture](https://martinfowler.com/books/eaa.html)" states:
 
