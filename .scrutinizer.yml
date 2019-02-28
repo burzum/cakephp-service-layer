@@ -4,7 +4,7 @@ imports:
 build:
     project_setup:
         before:
-            - sudo composer self-update
+            - composer self-update
             - composer --version
 
     nodes:
