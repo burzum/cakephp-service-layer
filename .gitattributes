@@ -3,10 +3,17 @@
 * text=auto
 * text eol=lf
 
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+
 # Remove files for archives generated using `git archive`
 phpunit.xml.dist export-ignore
 .travis.yml export-ignore
 .gitignore export-ignore
 .gitattributes export-ignore
 .editorconfig export-ignore
+.scrutinizer.yml export-ignore
+phpcs.xml.dist
+phpunit.xml.dist
 tests/test_app export-ignore

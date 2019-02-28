@@ -2,12 +2,19 @@
     "name": "burzum/cakephp-service-layer",
     "type": "cakephp-plugin",
     "license": "MIT",
+    "description": "Service layer and domain / business model implementation for CakePHP",
     "authors": [
         {
-            "name": "Florian Krämer"
+            "name": "Florian Krämer",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Mark Scherer",
+            "role": "Contributor"
         }
     ],
     "require": {
+        "php": ">=5.6",
         "cakephp/cakephp": "^3.5"
     },
     "require-dev": {
@@ -26,5 +33,9 @@
             "Burzum\\Cake\\Test\\": "tests/",
             "Cake\\Test\\Fixture\\": "vendor/cakephp/cakephp/tests/Fixture/"
         }
+    },
+    "scripts": {
+        "cs-check": "phpcs --colors --parallel=16 -p src/ tests/",
+        "cs-fix": "phpcbf --colors --parallel=16 -p src/ tests/"
     }
 }
