@@ -18,9 +18,6 @@ namespace App\Service;
 use Burzum\Cake\Service\ServicePaginatorTrait;
 use Cake\Datasource\ModelAwareTrait;
 
-/**
- * ServicePaginatorTraitTest
- */
 class ArticlesService
 {
     use ModelAwareTrait;

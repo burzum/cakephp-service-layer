@@ -15,6 +15,7 @@ declare(strict_types = 1);
 
 namespace Burzum\Cake\Service;
 
+use App\Service\Sub\Folder\NestedService;
 use App\Service\TestService;
 use Cake\TestSuite\TestCase;
 
@@ -33,6 +34,18 @@ class ServiceLocatorTest extends TestCase
         $locator = new ServiceLocator();
         $service = $locator->load('Test');
         $this->assertInstanceOf(TestService::class, $service);
+    }
+
+    /**
+     * testLocate
+     *
+     * @return void
+     */
+    public function testLocateNested()
+    {
+        $locator = new ServiceLocator();
+        $service = $locator->load('Sub/Folder/Nested');
+        $this->assertInstanceOf(NestedService::class, $service);
     }
 
     /**

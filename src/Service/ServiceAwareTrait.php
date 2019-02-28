@@ -41,6 +41,8 @@ trait ServiceAwareTrait
     /**
      * Load a service
      *
+     * If the service is in a subfolder, this folder name will be stripped for the property name when assigned.
+     *
      * @param string $service Service Name
      * @param array $constructorArgs Constructor Args
      * @param bool $assignProperty Assigns the service to a class property of the same name as  the service
@@ -55,6 +57,10 @@ trait ServiceAwareTrait
         }
 
         list(, $name) = pluginSplit($service);
+
+        if (strpos($name, '/') !== false) {
+            $name = substr($name, strrpos($name, '/') + 1);
+        }
 
         if (isset($this->{$name})) {
             trigger_error(__CLASS__ . '::$%s is already in use.', E_USER_WARNING);

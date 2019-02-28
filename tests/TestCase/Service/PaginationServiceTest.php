@@ -60,12 +60,14 @@ class PaginationServiceTest extends TestCase
                 'nextPage' => false,
                 'pageCount' => 1,
                 'sort' => null,
-                'direction' => false,
+                'direction' => null,
                 'limit' => null,
                 'sortDefault' => false,
                 'directionDefault' => false,
                 'scope' => null,
-                'completeSort' => []
+                'completeSort' => [],
+                'start' => 1,
+                'end' => 3,
             ],
             false
         ];
