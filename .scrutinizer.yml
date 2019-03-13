@@ -2,13 +2,12 @@ imports:
     - php
 
 build:
-    project_setup:
-        before:
-            - composer self-update
-            - composer --version
-
     nodes:
-        php:
+        php56:
+            environment:
+                php: '5.6'
+
+        php70:
             environment:
                 php: '7.0'
 
