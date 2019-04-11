@@ -131,8 +131,8 @@ class ServiceTask implements TaskInterface
         }
 
         foreach ($folderContent[0] as $subDirectory) {
-            $subFolder = $subFolder ? $subFolder . '/' . $subDirectory : $subDirectory;
-            $services += $this->addServices($services, $path . $subDirectory . DS, $subFolder, $plugin);
+            $nextSubFolder = $subFolder ? $subFolder . '/' . $subDirectory : $subDirectory;
+            $services = $this->addServices($services, $path . $subDirectory . DS, $nextSubFolder, $plugin);
         }
 
         return $services;
