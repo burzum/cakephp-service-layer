@@ -27,17 +27,16 @@ class ServiceTask implements TaskInterface
     /**
      * Aliases
      *
-     * @var array
+     * @var string[]
      */
     protected $aliases = [
         '\Burzum\Cake\Service\ServiceAwareTrait::loadService(0)',
-        '\ServiceAwareTrait::loadService(0)',
     ];
 
     /**
      * Buffer
      *
-     * @var array|null
+     * @var string[]|null
      */
     protected static $services;
 
@@ -89,7 +88,7 @@ class ServiceTask implements TaskInterface
         foreach ($plugins as $plugin) {
             $folders = App::path('Service', $plugin);
             foreach ($folders as $folder) {
-                $services = $this->addServices($services, $folder, $plugin);
+                $services = $this->addServices($services, $folder, null, $plugin);
             }
         }
 
@@ -99,14 +98,15 @@ class ServiceTask implements TaskInterface
     }
 
     /**
-     * @param array $services Services array
-     * @param string $folder Folder
+     * @param string[] $services Services array
+     * @param string $path Path
+     * @param string|null $subFolder Sub folder
      * @param string|null $plugin Plugin
      * @return string[]
      */
-    protected function addServices(array $services, $folder, $plugin = null)
+    protected function addServices(array $services, $path, $subFolder = null, $plugin = null)
     {
-        $folderContent = (new Folder($folder))->read(Folder::SORT_NAME, true);
+        $folderContent = (new Folder($path))->read(Folder::SORT_NAME, true);
 
         foreach ($folderContent[1] as $file) {
             preg_match('/^(.+)Service\.php$/', $file, $matches);
@@ -114,6 +114,10 @@ class ServiceTask implements TaskInterface
                 continue;
             }
             $service = $matches[1];
+            if ($subFolder) {
+                $service = $subFolder . '/' . $service;
+            }
+
             if ($plugin) {
                 $service = $plugin . '.' . $service;
             }
@@ -124,6 +128,11 @@ class ServiceTask implements TaskInterface
             }
 
             $services[$service] = $className;
+        }
+
+        foreach ($folderContent[0] as $subDirectory) {
+            $subFolder = $subFolder ? $subFolder . '/' . $subDirectory : $subDirectory;
+            $services += $this->addServices($services, $path . $subDirectory . DS, $subFolder, $plugin);
         }
 
         return $services;
