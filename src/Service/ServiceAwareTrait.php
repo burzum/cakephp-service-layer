@@ -16,6 +16,7 @@ declare(strict_types = 1);
 namespace Burzum\Cake\Service;
 
 use Cake\Core\ObjectRegistry;
+use RuntimeException;
 
 /**
  * Service Aware Trait
@@ -46,9 +47,10 @@ trait ServiceAwareTrait
      * @param string $service Service Name
      * @param array $constructorArgs Constructor Args
      * @param bool $assignProperty Assigns the service to a class property of the same name as  the service
-     * @return object
+     * @return \Burzum\Cake\Service\ServiceInterface
+     * @throws \RuntimeException
      */
-    public function loadService($service, array $constructorArgs = [], $assignProperty = true)
+    public function loadService($service, array $constructorArgs = [], $assignProperty = true): ServiceInterface
     {
         $serviceInstance = $this->getServiceLocator()->load($service, $constructorArgs);
 
@@ -63,7 +65,10 @@ trait ServiceAwareTrait
         }
 
         if (isset($this->{$name})) {
-            trigger_error(__CLASS__ . '::$%s is already in use.', E_USER_WARNING);
+            if ($this->{$name} instanceof ServiceInterface) {
+                return $this->{$name};
+            }
+            throw new RuntimeException(__CLASS__ . '::$%s is already in use but not of type ' . ServiceInterface::class .'.');
         }
 
         $this->{$name} = $serviceInstance;
