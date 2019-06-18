@@ -56,7 +56,7 @@ trait ServiceAwareTrait
             $name = substr($name, strrpos($name, '/') + 1);
         }
 
-        if (isset($this->{$name})) {
+        if ($assignProperty && isset($this->{$name})) {
             return $this->{$name};
         }
 
