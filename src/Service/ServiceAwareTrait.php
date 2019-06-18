@@ -50,12 +50,6 @@ trait ServiceAwareTrait
      */
     public function loadService($service, array $constructorArgs = [], $assignProperty = true)
     {
-        $serviceInstance = $this->getServiceLocator()->load($service, $constructorArgs);
-
-        if (!$assignProperty) {
-            return $serviceInstance;
-        }
-
         list(, $name) = pluginSplit($service);
 
         if (strpos($name, '/') !== false) {
@@ -63,7 +57,13 @@ trait ServiceAwareTrait
         }
 
         if (isset($this->{$name})) {
-            trigger_error(__CLASS__ . '::$%s is already in use.', E_USER_WARNING);
+            return $this->{$name};
+        }
+
+        $serviceInstance = $this->getServiceLocator()->load($service, $constructorArgs);
+
+        if (!$assignProperty) {
+            return $serviceInstance;
         }
 
         $this->{$name} = $serviceInstance;
