@@ -37,6 +37,20 @@ class ServiceLocatorTest extends TestCase
     }
 
     /**
+     * testLocate multiple
+     *
+     * @return void
+     */
+    public function testLocateMultiple()
+    {
+        $locator = new ServiceLocator();
+        $service = $locator->load('Test');
+        $service = $locator->load('Test');
+
+        $this->assertInstanceOf(TestService::class, $service);
+    }
+
+    /**
      * testLocate
      *
      * @return void
