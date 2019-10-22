@@ -18,7 +18,7 @@
         "cakephp/cakephp": "^3.5"
     },
     "require-dev": {
-        "dereuromark/cakephp-ide-helper": "@stable",
+        "dereuromark/cakephp-ide-helper": "dev-feature/directive as 0.14",
         "phpunit/phpunit": "^5.7.14|^6.0",
         "cakephp/cakephp-codesniffer": "^3.0"
     },
