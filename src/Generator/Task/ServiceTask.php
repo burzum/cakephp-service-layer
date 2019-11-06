@@ -17,6 +17,7 @@ namespace Burzum\Cake\Generator\Task;
 use Cake\Core\App;
 use Cake\Core\Plugin;
 use Cake\Filesystem\Folder;
+use IdeHelper\Generator\Directive\Override;
 use IdeHelper\Generator\Task\TaskInterface;
 
 /**
@@ -49,7 +50,7 @@ class ServiceTask implements TaskInterface
     }
 
     /**
-     * @return array
+     * @return \IdeHelper\Generator\Directive\BaseDirective[]
      */
     public function collect()
     {
@@ -62,7 +63,8 @@ class ServiceTask implements TaskInterface
 
         $result = [];
         foreach ($this->aliases as $alias) {
-            $result[$alias] = $map;
+            $directive = new Override($alias, $map);
+            $result[$directive->key()] = $directive;
         }
 
         return $result;

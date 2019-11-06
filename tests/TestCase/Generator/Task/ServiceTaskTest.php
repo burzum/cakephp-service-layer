@@ -21,20 +21,27 @@ use Cake\TestSuite\TestCase;
 class ServiceTaskTest extends TestCase
 {
     /**
-     * testLocate
+     * testCollect
      *
      * @return void
      */
     public function testCollect()
     {
         $task = new ServiceTask();
-        $map = $task->collect();
+        
+        $result = $task->collect();
+
+        $this->assertCount(1, $result);
+
+        /** @var \IdeHelper\Generator\Directive\Override $directive */
+        $directive = array_shift($result);
+        $this->assertSame('\Burzum\Cake\Service\ServiceAwareTrait::loadService(0)', $directive->toArray()['method']);
+
+        $map = $directive->toArray()['map'];
         $expected = [
-            '\Burzum\Cake\Service\ServiceAwareTrait::loadService(0)' => [
-                'Articles' => '\App\Service\ArticlesService::class',
-                'Test' => '\App\Service\TestService::class',
-                'Sub/Folder/Nested' => '\App\Service\Sub\Folder\NestedService::class',
-            ],
+            'Articles' => '\App\Service\ArticlesService::class',
+            'Test' => '\App\Service\TestService::class',
+            'Sub/Folder/Nested' => '\App\Service\Sub\Folder\NestedService::class',
         ];
         $this->assertSame($expected, $map);
     }
