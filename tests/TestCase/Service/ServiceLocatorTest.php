@@ -74,4 +74,19 @@ class ServiceLocatorTest extends TestCase
         $locator = new ServiceLocator();
         $locator->load('DoesNotExist');
     }
+
+    /**
+     * testPassingClassName
+     *
+     * @return void
+     */
+    public function testPassingClassName()
+    {
+        $locator = new ServiceLocator();
+        $locator->load('Existing', [
+            'className' => TestService::class
+        ]);
+        $this->assertNull($locator->get('Test'));
+        $this->assertInstanceOf(TestService::class, $locator->get('Existing'));
+    }
 }

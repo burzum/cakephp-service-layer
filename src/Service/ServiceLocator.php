@@ -80,6 +80,6 @@ class ServiceLocator extends ObjectRegistry
             return new $class();
         }
 
-        return new $class(...$config);
+        return new $class(...array_values($config));
     }
 }
