@@ -29,7 +29,7 @@ class DomainModelLocatorTest extends TestCase
      *
      * @return void
      */
-    public function testLocate()
+    public function testLocate(): void
     {
         $locator = new DomainModelLocator();
         $service = $locator->load('Article');
@@ -39,12 +39,12 @@ class DomainModelLocatorTest extends TestCase
     /**
      * testLocateClassNotFound
      *
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage Domain Model class `DoesNotExist` not found.
      * @return void
      */
-    public function testLocateClassNotFound()
+    public function testLocateClassNotFound(): void
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Domain Model class `DoesNotExist` not found.');
         $locator = new DomainModelLocator();
         $locator->load('DoesNotExist');
     }

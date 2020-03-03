@@ -37,13 +37,13 @@ class PaginationService
      *
      * @param \Cake\Http\ServerRequest $request Server Request
      */
-    public function __construct(ServerRequest $request)
+    public function __construct(ServerRequest &$request)
     {
         $this->request = $request;
 
         $_this = $this;
         $this->getEventManager()->on('Service.afterPaginate', function () use ($_this) {
-            $_this->addPagingParamToRequest($_this->request);
+            $_this->_request = $_this->addPagingParamToRequest($_this->request);
         });
     }
 }

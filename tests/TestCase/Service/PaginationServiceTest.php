@@ -71,6 +71,7 @@ class PaginationServiceTest extends TestCase
             ],
             false
         ];
+
         $this->assertInternalType('array', $params);
         $this->assertEquals($expected, $params);
         $this->assertInstanceOf(ResultSet::class, $result);

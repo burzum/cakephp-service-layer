@@ -30,7 +30,7 @@ class ArticlesTable extends Table
      * @param array $config Config
      * @return void
      */
-    public function initialize(array $config = [])
+    public function initialize(array $config = []): void
     {
         parent::initialize($config);
     }

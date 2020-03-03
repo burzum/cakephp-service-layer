@@ -10,8 +10,7 @@
          stopOnError="false"
          stopOnFailure="false"
          stopOnIncomplete="false"
-         stopOnSkipped="false"
-         syntaxCheck="false">
+         stopOnSkipped="false">
     <php>
         <!-- E_ALL & ~E_USER_DEPRECATED (16383)-->
         <!-- E_ALL (32767) -->

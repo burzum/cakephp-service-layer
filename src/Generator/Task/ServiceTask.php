@@ -52,7 +52,7 @@ class ServiceTask implements TaskInterface
     /**
      * @return \IdeHelper\Generator\Directive\BaseDirective[]
      */
-    public function collect()
+    public function collect(): array
     {
         $map = [];
 

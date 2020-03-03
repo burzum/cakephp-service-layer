@@ -109,13 +109,10 @@ trait ServicePaginatorTrait
      * Adds the paginator params to the request objects params
      *
      * @param \Cake\Http\ServerRequest $request Request object
-     * @return void
+     * @return \Cake\Http\ServerRequest
      */
-    public function addPagingParamToRequest(ServerRequest &$request)
+    public function addPagingParamToRequest(ServerRequest $request): ServerRequest
     {
-        $request->addParams([
-            'paging' => $this->getPaginator()->getPagingParams()
-                + (array)$request->getParam('paging')
-        ]);
+        return $request->withParam('paging', $this->getPaginator()->getPagingParams() + (array)$request->getParam('paging'));
     }
 }

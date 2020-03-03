@@ -32,7 +32,7 @@ class DomainModelLocator extends ObjectRegistry
      * @param string $class The class to resolve.
      * @return string|bool The resolved name or false for failure.
      */
-    protected function _resolveClassName($class)
+    protected function _resolveClassName(string $class): ?string
     {
         return App::className($class, 'DomainModel');
     }
@@ -45,7 +45,7 @@ class DomainModelLocator extends ObjectRegistry
      * @return void
      * @throws \Exception
      */
-    protected function _throwMissingClassError($class, $plugin)
+    protected function _throwMissingClassError(string $class, ?string $plugin): void
     {
         if (!empty($plugin)) {
             $message = sprintf(
