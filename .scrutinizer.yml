@@ -3,13 +3,13 @@ imports:
 
 build:
     nodes:
-        php70:
+        php73:
             environment:
-                php: '7.0'
+                php: '7.3'
 
-        php71:
+        php74:
             environment:
-                php: '7.1'
+                php: '7.4'
             tests:
                 override:
                     - php-scrutinizer-run --enable-security-analysis
