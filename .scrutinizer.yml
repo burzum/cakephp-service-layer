@@ -3,6 +3,10 @@ imports:
 
 build:
     nodes:
+        php72:
+            environment:
+                php: '7.2'
+
         php73:
             environment:
                 php: '7.3'
@@ -18,10 +22,6 @@ build:
                         coverage:
                             file: 'coverage.xml'
                             format: 'clover'
-
-        php72:
-            environment:
-                php: '7.2'
 
 filter:
     excluded_paths:

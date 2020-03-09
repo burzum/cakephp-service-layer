@@ -15,6 +15,7 @@ declare(strict_types = 1);
 
 namespace Burzum\Cake\Service;
 
+use Cake\Event\EventInterface;
 use Cake\Http\ServerRequest;
 
 /**
@@ -42,8 +43,8 @@ class PaginationService
         $this->request = $request;
 
         $_this = $this;
-        $this->getEventManager()->on('Service.afterPaginate', function () use ($_this) {
-            $_this->_request = $_this->addPagingParamToRequest($_this->request);
+        $this->getEventManager()->on('Service.afterPaginate', function (EventInterface $event) use ($_this) {
+            $event->setData('request', $_this->addPagingParamToRequest($_this->request));
         });
     }
 }
