@@ -20,7 +20,8 @@
     "require-dev": {
         "phpunit/phpunit": "^8.5.0",
         "cakephp/cakephp-codesniffer": "^3.0",
-        "dereuromark/cakephp-ide-helper": "^1.0"
+        "dereuromark/cakephp-ide-helper": "^1.0",
+        "phpstan/phpstan": "^0.12.14"
     },
     "conflict": {
         "dereuromark/cakephp-ide-helper": "<0.14"
