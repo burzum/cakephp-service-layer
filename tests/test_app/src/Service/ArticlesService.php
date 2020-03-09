@@ -24,6 +24,11 @@ class ArticlesService
     use ServicePaginatorTrait;
 
     /**
+     * @var \Cake\ORM\Table
+     */
+    protected $Articles;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -38,7 +43,7 @@ class ArticlesService
      */
     public function initialize()
     {
-        $this->loadModel('Articles');
+        $this->Articles = $this->loadModel('Articles');
     }
 
     /**
