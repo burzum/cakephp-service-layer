@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\DomainModel;
+namespace Burzum\CakeServiceLayer\DomainModel;
 
 use Cake\Core\ObjectRegistry;
 

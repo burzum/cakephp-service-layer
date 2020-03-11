@@ -13,10 +13,10 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Service;
+namespace Burzum\CakeServiceLayer\Service;
 
 use App\DomainModel\Article;
-use Burzum\Cake\DomainModel\DomainModelLocator;
+use Burzum\CakeServiceLayer\DomainModel\DomainModelLocator;
 use Cake\TestSuite\TestCase;
 
 /**

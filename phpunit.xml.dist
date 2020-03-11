@@ -24,7 +24,7 @@
     </listeners>
 
     <testsuites>
-        <testsuite name="service-layer">
+        <testsuite name="cake-service-layer">
             <directory>tests/TestCase/</directory>
         </testsuite>
     </testsuites>

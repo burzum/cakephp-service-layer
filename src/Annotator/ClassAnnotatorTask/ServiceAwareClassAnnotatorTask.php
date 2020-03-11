@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Annotator\ClassAnnotatorTask;
+namespace Burzum\CakeServiceLayer\Annotator\ClassAnnotatorTask;
 
 use Cake\Core\App;
 use IdeHelper\Annotation\AnnotationFactory;
@@ -37,7 +37,7 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
 
         $annotations = $this->_getServiceAnnotations($services);
 
-        return $this->_annotate($path, $this->content, $annotations);
+        return $this->annotateContent($path, $this->content, $annotations);
     }
 
     /**
@@ -45,7 +45,7 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
      *
      * @return array
      */
-    protected function _getUsedServices($content)
+    protected function _getUsedServices(string $content): array
     {
         preg_match_all('/\$this-\>loadService\(\'([a-z.\\/]+)\'/i', $content, $matches);
         if (empty($matches[1])) {
@@ -61,7 +61,7 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
      * @param array $usedServices Used services
      * @return \IdeHelper\Annotation\AbstractAnnotation[]
      */
-    protected function _getServiceAnnotations($usedServices)
+    protected function _getServiceAnnotations(array $usedServices): array
     {
         $annotations = [];
 

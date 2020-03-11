@@ -20,5 +20,4 @@ namespace App\DomainModel;
  */
 class Article
 {
-
 }

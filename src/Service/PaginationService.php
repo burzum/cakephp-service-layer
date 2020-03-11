@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Service;
+namespace Burzum\CakeServiceLayer\Service;
 
 use Cake\Event\EventInterface;
 use Cake\Http\ServerRequest;
@@ -23,7 +23,6 @@ use Cake\Http\ServerRequest;
  */
 class PaginationService
 {
-
     use ServicePaginatorTrait;
 
     /**

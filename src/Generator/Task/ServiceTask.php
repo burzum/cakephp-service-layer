@@ -12,7 +12,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Generator\Task;
+namespace Burzum\CakeServiceLayer\Generator\Task;
 
 use Cake\Core\App;
 use Cake\Core\Plugin;
@@ -31,7 +31,7 @@ class ServiceTask implements TaskInterface
      * @var string[]
      */
     protected $aliases = [
-        '\Burzum\Cake\Service\ServiceAwareTrait::loadService(0)',
+        '\Burzum\CakeServiceLayer\Service\ServiceAwareTrait::loadService(0)',
     ];
 
     /**

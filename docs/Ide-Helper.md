@@ -1,5 +1,5 @@
 # IDE support
-  
+
 With [IdeHelper](https://github.com/dereuromark/cakephp-ide-helper/) plugin you can get typehinting and autocomplete for your `loadService()` calls.
 Especially if you use PHPStorm, this will make it possible to get support here.
 
@@ -9,7 +9,7 @@ Include that plugin, set up your generator config and run e.g. `bin/cake phpstor
 You can include the `ServiceTask` in your `config/app.php` on project level:
 
 ```php
-use Burzum\Cake\Generator\Task\ServiceTask;
+use Burzum\CakeServiceLayer\Generator\Task\ServiceTask;
 
 return [
   ...
@@ -36,7 +36,7 @@ bin/cake annotations classes
 For this add this into your config to enable the `ServiceAwareClassAnnotatorTask`:
 
 ```php
-use Burzum\Cake\Annotator\ClassAnnotatorTask\ServiceAwareClassAnnotatorTask;
+use Burzum\CakeServiceLayer\Annotator\ClassAnnotatorTask\ServiceAwareClassAnnotatorTask;
 
 return [
   ...

@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Service;
+namespace Burzum\CakeServiceLayer\Service;
 
 use App\Service\Sub\Folder\NestedService;
 use App\Service\TestService;

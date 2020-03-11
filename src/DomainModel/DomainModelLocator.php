@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\DomainModel;
+namespace Burzum\CakeServiceLayer\DomainModel;
 
 use Cake\Core\App;
 use Cake\Core\ObjectRegistry;
@@ -30,7 +30,7 @@ class DomainModelLocator extends ObjectRegistry
      * Should resolve the class name for a given object type.
      *
      * @param string $class The class to resolve.
-     * @return string|bool The resolved name or false for failure.
+     * @return string|null The resolved name or false for failure.
      */
     protected function _resolveClassName(string $class): ?string
     {

@@ -1,4 +1,4 @@
-# Simple Example
+# Simple Pagination Example
 
 ## Actual State
 
@@ -17,7 +17,7 @@ public function index()
     $this->set('jobs', $this->paginate($query));
 }
 
-// App\Shell\JobsShellphp
+// App\Shell\JobsShell.php
 public function listJobs()
 {
     $jobs = $this->Jobs->find()
@@ -40,7 +40,7 @@ Now lets refactor this to move the logic into the right places, the table and se
 public function index()
 {
     $this->set('jobs', $this->Jobs->getListForUser(
-        $this->Auth->user('id', 
+        $this->Auth->user('id',
         $this->request
     ));
 }
@@ -66,10 +66,10 @@ public function getListForUser($userId, $queryParams)
 }
 
 // App\Shell\JobsShell
-public function listJobs() 
+public function listJobs()
 {
     $jobs = $this->Jobs->getListForUser(
-        $this->getParam('user', 
+        $this->getParam('user',
         $this->getOptions()
     ));
 
