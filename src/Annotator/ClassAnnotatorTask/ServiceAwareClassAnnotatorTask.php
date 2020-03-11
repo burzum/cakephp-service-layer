@@ -18,7 +18,7 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
      * @param string $content Content
      * @return bool
      */
-    public function shouldRun($path, $content)
+    public function shouldRun(string $path, string $content): bool
     {
         if (!preg_match('#\buse ServiceAwareTrait\b#', $content)) {
             return false;
@@ -31,7 +31,7 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
      * @param string $path Path
      * @return bool
      */
-    public function annotate($path)
+    public function annotate(string $path): bool
     {
         $services = $this->_getUsedServices($this->content);
 

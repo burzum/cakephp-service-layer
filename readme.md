@@ -7,6 +7,11 @@
 
 This is more a **design pattern** and **conceptual idea** than a lot of code and will *improve the maintainability* of your code base. This plugin just provides some classes to help you applying this concept in the CakePHP framework following the way of the framework of convention over configuration.
 
+## Supported CakePHP Versions
+
+* For CakePHP **3.x** use the 1.x branch or version
+* For CakePHP **4.x** use the 2.x branch or version
+
 ## Introduction
 
 The rule of thumb in any MVC framework is basically "fat models, skinny controllers".
@@ -22,7 +27,7 @@ This ensures that each part of the code is easy to test and exchange. For exampl
 [Martin Fowler's](https://en.wikipedia.org/wiki/Martin_Fowler) book "[Patterns of Enterprise Architecture](https://martinfowler.com/books/eaa.html)" states:
 
 > The easier question to answer is probably when not to use it. You probably don't need a Service Layer if your application's business logic will only have one kind of client - say, a user interface - and it's use case responses don't involve multiple transactional resources. [...]
-> 
+>
 > But as soon as you envision a second kind of client, or a second transactional resource in use case responses, it pays to design in a Service Layer from the beginning.
 
 ## It's opinionated
@@ -31,7 +36,7 @@ There is a simple paragraph [on this page](https://blog.fedecarg.com/2009/03/11/
 
 > According to Eric Evans, Domain-driven design (DDD) is not a technology or a methodology. It’s a different way of thinking about how to organize your applications and structure your code. This way of thinking complements very well the popular MVC architecture. The domain model provides a structural view of the system. Most of the time, applications don’t change, what changes is the domain. **MVC, however, doesn’t really tell you how your model should be structured. That’s why some frameworks don’t force you to use a specific model structure, instead, they let your model evolve as your knowledge and expertise grows.**
 
-CakePHP doesn't feature a template structure of any DDD or service layer architecture for that reason. It's basically up to you. 
+CakePHP doesn't feature a template structure of any DDD or service layer architecture for that reason. It's basically up to you.
 
 This plugin provides you *one possible* implementation. It's not carved in stone, nor do you have to agree with it. Consider this plugin as a suggestion or template for the implementation and as a guidance for developers who care about maintainable code but don't know how to further improve their code base yet.
 
@@ -88,7 +93,7 @@ DI plugins for CakePHP:
  * [Piping Bag](https://github.com/lorenzo/piping-bag)
  * [Pimple DI](https://github.com/rochamarcelo/cake-pimple-di)
  * [CakePHP DI Generic PSR 11 Adapter](https://github.com/robotusers/cakephp-di)
- 
+
 You might find more DI plugins in the [Awesome CakePHP list of plugins](https://github.com/FriendsOfCake/awesome-cakephp#dependency-injection).
 
 ## License

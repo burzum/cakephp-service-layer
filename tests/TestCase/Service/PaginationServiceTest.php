@@ -44,10 +44,11 @@ class PaginationServiceTest extends TestCase
         $request = new ServerRequest();
         $service = new PaginationService($request);
 
-        $this->assertFalse($request->getParam('paging'));
+        $articles = TableRegistry::getTableLocator()->get('Articles');
 
-        $articles = TableRegistry::get('Articles');
         $result = $service->paginate($articles);
+        $request = $service->addPagingParamToRequest($request);
+
         $params = $request->getParam('paging');
         $expected = [
             'Articles' => [
@@ -68,10 +69,11 @@ class PaginationServiceTest extends TestCase
                 'completeSort' => [],
                 'start' => 1,
                 'end' => 3,
-            ],
-            false
+                'requestedPage' => 1
+            ]
         ];
-        $this->assertInternalType('array', $params);
+
+        $this->assertIsArray($params);
         $this->assertEquals($expected, $params);
         $this->assertInstanceOf(ResultSet::class, $result);
     }

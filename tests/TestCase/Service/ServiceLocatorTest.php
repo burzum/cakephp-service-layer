@@ -65,12 +65,12 @@ class ServiceLocatorTest extends TestCase
     /**
      * testLocateClassNotFound
      *
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage Service class `DoesNotExist` not found.
      * @return void
      */
     public function testLocateClassNotFound()
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Service class `DoesNotExist` not found.');
         $locator = new ServiceLocator();
         $locator->load('DoesNotExist');
     }
@@ -86,7 +86,10 @@ class ServiceLocatorTest extends TestCase
         $locator->load('Existing', [
             'className' => TestService::class
         ]);
-        $this->assertNull($locator->get('Test'));
+
         $this->assertInstanceOf(TestService::class, $locator->get('Existing'));
+
+        $this->expectException(\RuntimeException::class);
+        $locator->get('Test');
     }
 }

@@ -3,13 +3,17 @@ imports:
 
 build:
     nodes:
-        php70:
+        php72:
             environment:
-                php: '7.0'
+                php: '7.2'
 
-        php71:
+        php73:
             environment:
-                php: '7.1'
+                php: '7.3'
+
+        php74:
+            environment:
+                php: '7.4'
             tests:
                 override:
                     - php-scrutinizer-run --enable-security-analysis
@@ -18,10 +22,6 @@ build:
                         coverage:
                             file: 'coverage.xml'
                             format: 'clover'
-
-        php72:
-            environment:
-                php: '7.2'
 
 filter:
     excluded_paths:

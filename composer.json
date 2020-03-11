@@ -15,12 +15,13 @@
     ],
     "require": {
         "php": ">=7.0",
-        "cakephp/cakephp": "^3.5"
+        "cakephp/cakephp": "^4.0"
     },
     "require-dev": {
-        "dereuromark/cakephp-ide-helper": "@stable",
-        "phpunit/phpunit": "^5.7.14|^6.0",
-        "cakephp/cakephp-codesniffer": "^3.0"
+        "phpunit/phpunit": "^8.5.0",
+        "cakephp/cakephp-codesniffer": "^3.0",
+        "dereuromark/cakephp-ide-helper": "^1.0",
+        "phpstan/phpstan": "^0.12.14"
     },
     "conflict": {
         "dereuromark/cakephp-ide-helper": "<0.14"
