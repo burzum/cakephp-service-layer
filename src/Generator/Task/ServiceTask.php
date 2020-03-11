@@ -81,14 +81,14 @@ class ServiceTask implements TaskInterface
 
         $services = [];
 
-        $folders = App::path('Service');
+        $folders = App::classPath('Service');
         foreach ($folders as $folder) {
             $services = $this->addServices($services, $folder);
         }
 
         $plugins = Plugin::loaded();
         foreach ($plugins as $plugin) {
-            $folders = App::path('Service', $plugin);
+            $folders = App::classPath('Service', $plugin);
             foreach ($folders as $folder) {
                 $services = $this->addServices($services, $folder, null, $plugin);
             }
