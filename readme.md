@@ -9,7 +9,7 @@ This is more a **design pattern** and **conceptual idea** than a lot of code and
 
 ## Supported CakePHP Versions
 
-* For CakePHP **3.x** use the 1.x branch and version
+* For CakePHP **3.x** use the 1.x branch and versions
 * For CakePHP **4.x** use the master branch or 2.x versions
 
 ## Introduction
