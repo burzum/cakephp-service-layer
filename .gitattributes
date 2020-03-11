@@ -16,4 +16,5 @@ phpunit.xml.dist export-ignore
 .scrutinizer.yml export-ignore
 phpcs.xml.dist
 phpunit.xml.dist
-tests/test_app export-ignore
+tests/test_files/ export-ignore
+tests/test_app/ export-ignore
