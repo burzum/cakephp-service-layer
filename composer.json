@@ -23,22 +23,20 @@
         "dereuromark/cakephp-ide-helper": "^1.0",
         "phpstan/phpstan": "^0.12.14"
     },
-    "conflict": {
-        "dereuromark/cakephp-ide-helper": "<0.14"
-    },
     "autoload": {
         "psr-4": {
-            "Burzum\\Cake\\": "src/"
+            "Burzum\\CakeServiceLayer\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "App\\": "tests/test_app/src/",
-            "Burzum\\Cake\\Test\\": "tests/",
+            "Burzum\\CakeServiceLayer\\Test\\": "tests/",
             "Cake\\Test\\Fixture\\": "vendor/cakephp/cakephp/tests/Fixture/"
         }
     },
     "scripts": {
+        "stan": "vendor/bin/phpstan analyze src/",
         "cs-check": "phpcs --colors --parallel=16 -p src/ tests/",
         "cs-fix": "phpcbf --colors --parallel=16 -p src/ tests/"
     }

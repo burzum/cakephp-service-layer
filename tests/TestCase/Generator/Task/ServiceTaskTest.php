@@ -13,9 +13,9 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Test\TestCase\Generator\Task;
+namespace Burzum\CakeServiceLayer\Test\TestCase\Generator\Task;
 
-use Burzum\Cake\Generator\Task\ServiceTask;
+use Burzum\CakeServiceLayer\Generator\Task\ServiceTask;
 use Cake\TestSuite\TestCase;
 
 class ServiceTaskTest extends TestCase
@@ -28,14 +28,14 @@ class ServiceTaskTest extends TestCase
     public function testCollect()
     {
         $task = new ServiceTask();
-        
+
         $result = $task->collect();
 
         $this->assertCount(1, $result);
 
         /** @var \IdeHelper\Generator\Directive\Override $directive */
         $directive = array_shift($result);
-        $this->assertSame('\Burzum\Cake\Service\ServiceAwareTrait::loadService(0)', $directive->toArray()['method']);
+        $this->assertSame('\Burzum\CakeServiceLayer\Service\ServiceAwareTrait::loadService(0)', $directive->toArray()['method']);
 
         $map = $directive->toArray()['map'];
         $expected = [

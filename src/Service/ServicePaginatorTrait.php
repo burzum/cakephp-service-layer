@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Service;
+namespace Burzum\CakeServiceLayer\Service;
 
 use Cake\Datasource\Paginator;
 use Cake\Datasource\PaginatorInterface;
@@ -29,6 +29,8 @@ trait ServicePaginatorTrait
 
     /**
      * Paginator instance
+     *
+     * @var \Cake\Datasource\PaginatorInterface
      */
     protected $_paginator;
 
@@ -43,7 +45,7 @@ trait ServicePaginatorTrait
      * Set paginator instance.
      *
      * @param \Cake\Datasource\PaginatorInterface $paginator Paginator instance.
-     * @return self
+     * @return static
      */
     public function setPaginator(PaginatorInterface $paginator)
     {
@@ -55,7 +57,7 @@ trait ServicePaginatorTrait
     /**
      * Get paginator instance.
      *
-     * @return \Cake\Datasource\Paginator
+     * @return \Cake\Datasource\PaginatorInterface
      */
     public function getPaginator()
     {

@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Service;
+namespace Burzum\CakeServiceLayer\Service;
 
 use App\Service\ArticlesService;
 use Cake\Http\ServerRequest;

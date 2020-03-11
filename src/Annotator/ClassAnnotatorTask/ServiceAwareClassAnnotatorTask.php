@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Burzum\Cake\Annotator\ClassAnnotatorTask;
+namespace Burzum\CakeServiceLayer\Annotator\ClassAnnotatorTask;
 
 use Cake\Core\App;
 use IdeHelper\Annotation\AnnotationFactory;

@@ -48,7 +48,7 @@ There is also a ServicePaginatorTrait that allows you to use pagination inside y
 
 The following example uses a `SomeServiceNameService` class:
 ```php
-use Burzum\Cake\Service\ServiceAwareTrait;
+use Burzum\CakeServiceLayer\Service\ServiceAwareTrait;
 
 class AppController extends Controller
 {
@@ -79,6 +79,14 @@ class FooController extends AppController
 If there is already a property with the name of the service used in the controller a warning will be thrown. In an ideal case your controller won't have to use any table instances anyway when using services. The tables are not a concern of the controller.
 
 The advantage of the above code is that the args passed to the service could come from shell input or any other source. The logic isn't tied to the controller nor the model. Using proper abstraction, the underlying data source, a repository that is used by the service, should be transparently replaceable with any interface that matches the required implementation.
+
+You can also load namespaced services:
+```php
+// Loads BarService from MyPlugin and src/Service/Foo/
+$this->loadService('MyPlugin.Foo/Bar');
+```
+
+Make sure to get IDE support using the documented IdeHelper enhancements.
 
 For details see **[docs](/docs)**.
 

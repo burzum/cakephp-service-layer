@@ -15,7 +15,7 @@ declare(strict_types = 1);
 
 namespace App\Service;
 
-use Burzum\Cake\Service\ServicePaginatorTrait;
+use Burzum\CakeServiceLayer\Service\ServicePaginatorTrait;
 use Cake\Datasource\ModelAwareTrait;
 
 class ArticlesService
@@ -49,6 +49,7 @@ class ArticlesService
     /**
      * List articles
      *
+     * @param \Cake\Http\ServerRequest $request
      * @return \Cake\Datasource\ResultSetInterface|array
      */
     public function listing($request)
