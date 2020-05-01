@@ -11,7 +11,7 @@
  * @since         1.0.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Burzum\CakeServiceLayer\Service;
 
@@ -84,7 +84,7 @@ class ServiceLocatorTest extends TestCase
     {
         $locator = new ServiceLocator();
         $locator->load('Existing', [
-            'className' => TestService::class
+            'className' => TestService::class,
         ]);
 
         $this->assertInstanceOf(TestService::class, $locator->get('Existing'));
