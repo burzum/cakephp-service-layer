@@ -11,7 +11,7 @@
  * @since         1.0.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Burzum\CakeServiceLayer\Service;
 
@@ -31,7 +31,7 @@ class PaginationServiceTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'core.Articles'
+        'core.Articles',
     ];
 
     /**
@@ -69,8 +69,8 @@ class PaginationServiceTest extends TestCase
                 'completeSort' => [],
                 'start' => 1,
                 'end' => 3,
-                'requestedPage' => 1
-            ]
+                'requestedPage' => 1,
+            ],
         ];
 
         $this->assertIsArray($params);
