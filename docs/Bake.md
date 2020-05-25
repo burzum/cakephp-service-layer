@@ -1,4 +1,10 @@
 # Bake
+First, make sure the plugin is loaded.
+
+Inside your Application.php:
+```php
+$this->addPlugin('Burzum/CakeServiceLayer');
+```
 
 ## Bake your Service
 
