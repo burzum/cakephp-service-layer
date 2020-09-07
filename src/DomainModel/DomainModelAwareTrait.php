@@ -72,7 +72,7 @@ trait DomainModelAwareTrait
      */
     public function getDomainModelLocator()
     {
-        if (empty($this->serviceLocator)) {
+        if (empty($this->domainModelLocator)) {
             $class = $this->defaultDomainModelLocator;
             $this->domainModelLocator = new $class();
         }
