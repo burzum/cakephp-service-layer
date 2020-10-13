@@ -49,7 +49,7 @@ class PaginationServiceTest extends TestCase
         $result = $service->paginate($articles);
         $request = $service->addPagingParamToRequest($request);
 
-        $params = $request->getParam('paging');
+        $params = $request->getAttribute('paging');
         $expected = [
             'Articles' => [
                 'finder' => 'all',

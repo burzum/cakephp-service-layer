@@ -115,6 +115,6 @@ trait ServicePaginatorTrait
      */
     public function addPagingParamToRequest(ServerRequest $request): ServerRequest
     {
-        return $request->withParam('paging', $this->getPaginator()->getPagingParams() + (array)$request->getParam('paging'));
+        return $request->withAttribute('paging', $this->getPaginator()->getPagingParams() + $request->getAttribute('paging', []));
     }
 }
