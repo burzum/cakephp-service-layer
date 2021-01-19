@@ -9,6 +9,6 @@ use Cake\Event\EventManager;
 EventManager::instance()->on('Controller.initialize', function ($event) {
     $controller = $event->getSubject();
     $controller->getEventManager()->on('Service.afterPaginate', function ($event) use ($controller) {
-        $event->getSubject()->addPagingParamToRequest($controller->request);
+        $controller->setRequest($event->getSubject()->addPagingParamToRequest($controller->getRequest()));
     });
 });
