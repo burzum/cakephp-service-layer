@@ -54,10 +54,10 @@ trait DomainModelAwareTrait
             return $domainModel;
         }
 
-        list(, $name) = pluginSplit($model);
+        [, $name] = pluginSplit($model);
 
         if (isset($this->{$name})) {
-            trigger_error(__CLASS__ . '::$%s is already in use.', E_USER_WARNING);
+            trigger_error(self::class . '::$%s is already in use.', E_USER_WARNING);
         }
 
         $this->{$name} = $domainModel;

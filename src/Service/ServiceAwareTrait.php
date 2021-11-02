@@ -50,7 +50,7 @@ trait ServiceAwareTrait
      */
     public function loadService($service, array $constructorArgs = [], $assignProperty = true)
     {
-        list(, $name) = pluginSplit($service);
+        [, $name] = pluginSplit($service);
 
         if (strpos($name, '/') !== false) {
             $name = substr($name, strrpos($name, '/') + 1);

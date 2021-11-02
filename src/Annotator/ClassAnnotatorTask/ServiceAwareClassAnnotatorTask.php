@@ -56,7 +56,6 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
 
     /**
      * @param string $content Content
-     *
      * @return array
      */
     protected function _getUsedServices(string $content): array
@@ -84,7 +83,7 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
             if (!$className) {
                 continue;
             }
-            list(, $name) = pluginSplit($usedService);
+            [, $name] = pluginSplit($usedService);
 
             if (strpos($name, '/') !== false) {
                 $name = substr($name, strrpos($name, '/') + 1);
@@ -99,7 +98,6 @@ class ServiceAwareClassAnnotatorTask extends AbstractClassAnnotatorTask implemen
     /**
      * @param string $path Path to PHP class file
      * @param string $content Content of PHP class file
-     *
      * @return string|null
      */
     protected function getClassName(string $path, string $content): ?string
