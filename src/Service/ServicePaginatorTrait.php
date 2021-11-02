@@ -37,6 +37,7 @@ trait ServicePaginatorTrait
     /**
      * Default paginator class
      *
+     * @phpstan-var class-string<\Cake\Datasource\PaginatorInterface>
      * @var string
      */
     protected $_defaultPaginatorClass = Paginator::class;
@@ -61,7 +62,7 @@ trait ServicePaginatorTrait
      */
     public function getPaginator()
     {
-        if (empty($this->_paginator)) {
+        if ($this->_paginator === null) {
             $class = $this->_defaultPaginatorClass;
             $this->setPaginator(new $class());
         }
@@ -115,6 +116,8 @@ trait ServicePaginatorTrait
      */
     public function addPagingParamToRequest(ServerRequest $request): ServerRequest
     {
-        return $request->withAttribute('paging', $this->getPaginator()->getPagingParams() + $request->getAttribute('paging', []));
+        $paging = $this->getPaginator()->getPagingParams() + $request->getAttribute('paging', []);
+
+        return $request->withAttribute('paging', $paging);
     }
 }
