@@ -57,7 +57,7 @@ trait DomainModelAwareTrait
         [, $name] = pluginSplit($model);
 
         if (isset($this->{$name})) {
-            trigger_error(self::class . '::$%s is already in use.', E_USER_WARNING);
+            trigger_error(static::class . '::$%s is already in use.', E_USER_WARNING);
         }
 
         $this->{$name} = $domainModel;
