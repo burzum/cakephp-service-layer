@@ -15,8 +15,8 @@ declare(strict_types=1);
 
 namespace Burzum\CakeServiceLayer\Service;
 
-use Cake\Datasource\Paginator;
-use Cake\Datasource\PaginatorInterface;
+use Cake\Datasource\Paging\SimplePaginator;
+use Cake\Datasource\Paging\PaginatorInterface;
 use Cake\Event\EventDispatcherTrait;
 use Cake\Http\ServerRequest;
 
@@ -30,22 +30,22 @@ trait ServicePaginatorTrait
     /**
      * Paginator instance
      *
-     * @var \Cake\Datasource\PaginatorInterface
+     * @var \Cake\Datasource\Paging\PaginatorInterface
      */
     protected $_paginator;
 
     /**
      * Default paginator class
      *
-     * @phpstan-var class-string<\Cake\Datasource\PaginatorInterface>
+     * @phpstan-var class-string<\Cake\Datasource\Paging\PaginatorInterface>
      * @var string
      */
-    protected $_defaultPaginatorClass = Paginator::class;
+    protected $_defaultPaginatorClass = SimplePaginator::class;
 
     /**
      * Set paginator instance.
      *
-     * @param \Cake\Datasource\PaginatorInterface $paginator Paginator instance.
+     * @param \Cake\Datasource\Paging\PaginatorInterface $paginator Paginator instance.
      * @return static
      */
     public function setPaginator(PaginatorInterface $paginator)
@@ -58,7 +58,7 @@ trait ServicePaginatorTrait
     /**
      * Get paginator instance.
      *
-     * @return \Cake\Datasource\PaginatorInterface
+     * @return \Cake\Datasource\Paging\PaginatorInterface
      */
     public function getPaginator()
     {
