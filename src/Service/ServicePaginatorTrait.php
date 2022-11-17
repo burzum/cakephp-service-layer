@@ -15,8 +15,8 @@ declare(strict_types=1);
 
 namespace Burzum\CakeServiceLayer\Service;
 
-use Cake\Datasource\Paging\SimplePaginator;
 use Cake\Datasource\Paging\PaginatorInterface;
+use Cake\Datasource\Paging\SimplePaginator;
 use Cake\Event\EventDispatcherTrait;
 use Cake\Http\ServerRequest;
 
