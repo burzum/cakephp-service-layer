@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace Burzum\CakeServiceLayer\Generator\Task;
 
+use Burzum\CakeServiceLayer\Filesystem\Folder;
 use Cake\Core\App;
 use Cake\Core\Plugin;
-use Cake\Filesystem\Folder;
 use IdeHelper\Generator\Directive\Override;
 use IdeHelper\Generator\Task\TaskInterface;
 
@@ -30,7 +30,7 @@ class ServiceTask implements TaskInterface
      *
      * @var string[]
      */
-    protected $aliases = [
+    protected array $aliases = [
         '\Burzum\CakeServiceLayer\Service\ServiceAwareTrait::loadService(0)',
     ];
 
@@ -106,8 +106,12 @@ class ServiceTask implements TaskInterface
      * @param string|null $plugin Plugin
      * @return string[]
      */
-    protected function addServices(array $services, $path, $subFolder = null, $plugin = null)
-    {
+    protected function addServices(
+        array $services,
+        string $path,
+        ?string $subFolder = null,
+        ?string $plugin = null
+    ): array {
         $folderContent = (new Folder($path))->read(Folder::SORT_NAME, true);
 
         foreach ($folderContent[1] as $file) {

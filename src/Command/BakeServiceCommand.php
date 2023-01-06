@@ -30,12 +30,12 @@ class BakeServiceCommand extends SimpleBakeCommand
      *
      * @var string
      */
-    public $pathFragment = 'Service/';
+    public string $pathFragment = 'Service/';
 
     /**
      * @var string
      */
-    protected $_name;
+    protected string $_name = '';
 
     /**
      * @inheritDoc

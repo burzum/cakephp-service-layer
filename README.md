@@ -4,13 +4,15 @@
 [![Build Status](https://img.shields.io/scrutinizer/build/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
 [![Code Quality](https://img.shields.io/scrutinizer/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/burzum/cakephp-service-layer/v/stable.svg)](https://packagist.org/packages/burzum/cakephp-service-layer)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.1-8892BF.svg)](https://php.net/)
 
 This is more a **design pattern** and **conceptual idea** than a lot of code and will *improve the maintainability* of your code base. This plugin just provides some classes to help you applying this concept in the CakePHP framework following the way of the framework of convention over configuration.
 
 ## Supported CakePHP Versions
 
 * For CakePHP **3.x** use the 1.x branch and versions
-* For CakePHP **4.x** use the master branch or 2.x versions
+* For CakePHP **4.x** use the 2.x branch and versions
 
 ## Introduction
 
@@ -43,8 +45,6 @@ This plugin provides you *one possible* implementation. It's not carved in stone
 ## How to use it
 
 CakePHP by default uses locators instead of a dependency injection container. This plugin gives you a CakePHP fashioned service locator and a trait so you can simply load services anywhere in your application by using the trait.
-
-There is also a ServicePaginatorTrait that allows you to use pagination inside your services with repository objects like the table objects.
 
 The following example uses a `SomeServiceNameService` class:
 ```php

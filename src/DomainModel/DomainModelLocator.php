@@ -69,12 +69,12 @@ class DomainModelLocator extends ObjectRegistry
      * The passed config array will be used as constructor args for the new
      * object.
      *
-     * @param string $class The class to build.
+     * @param object|string $class The class to build.
      * @param string $alias The alias of the object.
      * @param array $config The Configuration settings for construction
-     * @return mixed
+     * @return object
      */
-    protected function _create($class, $alias, $config)
+    protected function _create(object|string $class, string $alias, array $config): object
     {
         if (empty($config)) {
             return new $class();

@@ -17,7 +17,7 @@ namespace Burzum\CakeServiceLayer\Service;
 
 use Burzum\CakeServiceLayer\Annotator\ClassAnnotatorTask\ServiceAwareClassAnnotatorTask;
 use Cake\Console\ConsoleIo;
-use Cake\TestSuite\Stub\ConsoleOutput;
+use Cake\Console\TestSuite\StubConsoleOutput;
 use Cake\TestSuite\TestCase;
 use IdeHelper\Console\Io;
 
@@ -28,7 +28,7 @@ class ServiceAwareClassAnnotatorTaskTest extends TestCase
      */
     public function testAnnotate(): void
     {
-        $out = new ConsoleOutput();
+        $out = new StubConsoleOutput();
         $io = new Io(new ConsoleIo($out));
         $config = [
             'dry-run' => true,

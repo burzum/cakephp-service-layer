@@ -15,13 +15,12 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use Burzum\CakeServiceLayer\Service\ServicePaginatorTrait;
-use Cake\Datasource\ModelAwareTrait;
+use Cake\ORM\Locator\LocatorAwareTrait;
+use Cake\ORM\ResultSet;
 
 class ArticlesService
 {
-    use ModelAwareTrait;
-    use ServicePaginatorTrait;
+    use LocatorAwareTrait;
 
     /**
      * @var \Cake\ORM\Table
@@ -43,20 +42,18 @@ class ArticlesService
      */
     public function initialize()
     {
-        $this->Articles = $this->loadModel('Articles');
+        $this->Articles = $this->fetchTable('Articles');
     }
 
     /**
      * List articles
      *
      * @param \Cake\Http\ServerRequest $request
-     * @return \Cake\Datasource\ResultSetInterface|array
+     * @return \Cake\Datasource\ResultSetInterface
      */
     public function listing($request)
     {
-        $query = $this->Articles->find();
-        $result = $this->paginate($query);
-        $this->addPagingParamToRequest($request);
+        $result = new ResultSet([]);
 
         return $result;
     }
