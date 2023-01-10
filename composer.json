@@ -38,8 +38,8 @@
     "scripts": {
         "test": "phpunit",
         "stan": "vendor/bin/phpstan analyze",
-        "cs-check": "phpcs --colors --parallel=16 -p src/ tests/",
-        "cs-fix": "phpcbf --colors --parallel=16 -p src/ tests/"
+        "cs-check": "phpcs --colors --parallel=16",
+        "cs-fix": "phpcbf --colors --parallel=16"
     },
     "config": {
         "allow-plugins": {
