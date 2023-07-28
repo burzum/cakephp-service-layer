@@ -4,6 +4,8 @@
 [![Build Status](https://img.shields.io/scrutinizer/build/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
 [![Code Quality](https://img.shields.io/scrutinizer/g/burzum/cakephp-service-layer/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/burzum/cakephp-service-layer/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/burzum/cakephp-service-layer/v/stable.svg)](https://packagist.org/packages/burzum/cakephp-service-layer)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.3-8892BF.svg)](https://php.net/)
 
 This is more a **design pattern** and **conceptual idea** than a lot of code and will *improve the maintainability* of your code base. This plugin just provides some classes to help you applying this concept in the CakePHP framework following the way of the framework of convention over configuration.
 
