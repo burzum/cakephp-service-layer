@@ -7,11 +7,11 @@ on:
 
 jobs:
   testsuite:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.4', '8.1']
+        php-version: ['7.4', '8.2']
         db-type: [sqlite, mysql, pgsql]
         prefer-lowest: ['']
         include:
@@ -28,7 +28,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup Service
         if: matrix.db-type == 'mysql'
@@ -82,10 +82,10 @@ jobs:
 
   validation:
     name: Coding Standard & Static Analysis
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
