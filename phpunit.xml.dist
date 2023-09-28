@@ -7,7 +7,7 @@
     </php>
 
     <extensions>
-        <extension class="\Cake\TestSuite\Fixture\PHPUnitExtension"/>
+        <bootstrap class="Cake\TestSuite\Fixture\Extension\PHPUnitExtension"/>
     </extensions>
 
     <testsuites>
@@ -16,9 +16,9 @@
         </testsuite>
     </testsuites>
 
-    <filter>
-      <whitelist processUncoveredFilesFromWhitelist="true">
+    <source>
+      <include>
         <directory suffix=".php">src/</directory>
-      </whitelist>
-    </filter>
+      </include>
+    </source>
 </phpunit>
