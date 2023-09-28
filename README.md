@@ -11,8 +11,7 @@ This is more a **design pattern** and **conceptual idea** than a lot of code and
 
 ## Supported CakePHP Versions
 
-* For CakePHP **3.x** use the 1.x branch and versions
-* For CakePHP **4.x** use the 2.x branch and versions
+This branch is for use with **CakePHP 4.4+**. For details see [version map](https://github.com/burzum/cakephp-service-layer/wiki#cakephp-version-map).
 
 ## Introduction
 
