@@ -11,7 +11,7 @@ This is more a **design pattern** and **conceptual idea** than a lot of code and
 
 ## Supported CakePHP Versions
 
-This branch is for use with **CakePHP 4.4+**. For details see [version map](https://github.com/burzum/cakephp-service-layer/wiki#cakephp-version-map).
+This branch is for use with **CakePHP 5.0+**. For details see [version map](https://github.com/burzum/cakephp-service-layer/wiki#cakephp-version-map).
 
 ## Introduction
 
