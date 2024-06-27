@@ -1,6 +1,6 @@
 # Bake
 
-## install the plugin
+## Install
 Install the plugin with composer from your CakePHP project's ROOT directory (where composer.json file is located)
 ```bash
 php composer.phar require burzum/cakephp-service-layer
@@ -9,7 +9,8 @@ or
 ```bash
 composer require burzum/cakephp-service-layer
 ```
-## Ensure loading the pkugin 
+
+## Setup
 First, make sure the plugin is loaded.
 
 Inside your Application.php:
