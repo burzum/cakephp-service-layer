@@ -104,7 +104,7 @@ DI plugins for CakePHP:
 You might find more DI plugins in the [Awesome CakePHP list of plugins](https://github.com/FriendsOfCake/awesome-cakephp#dependency-injection).
 
 ## Demo
-The [sandbox](https://sandbox4.dereuromark.de/sandbox/service-examples) showcases a live demo. Check the publically available code for details.
+The [sandbox](https://sandbox.dereuromark.de/sandbox/service-examples) showcases a live demo. Check the publically available code for details.
 
 ## License
 
