@@ -59,10 +59,10 @@ jobs:
           if ${{ matrix.prefer-lowest == 'prefer-lowest' }}
           then
             composer update --prefer-lowest --prefer-stable
+            composer require --dev dereuromark/composer-prefer-lowest:dev-master
           else
             composer install --no-progress --prefer-dist --optimize-autoloader
           fi
-          if ${{ matrix.prefer-lowest == 'prefer-lowest' }}; then composer require --dev dereuromark/composer-prefer-lowest:dev-master; fi
       - name: Run PHPUnit
         run: |
           if [[ ${{ matrix.db-type }} == 'sqlite' ]]; then export DB_URL='sqlite:///:memory:'; fi
