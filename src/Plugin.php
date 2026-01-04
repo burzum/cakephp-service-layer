@@ -13,44 +13,11 @@ declare(strict_types=1);
  */
 namespace Burzum\CakeServiceLayer;
 
-use Bake\Command\SimpleBakeCommand;
-use Cake\Console\CommandCollection;
-use Cake\Core\BasePlugin;
-
 /**
  * Plugin class for Burzum/CakeServiceLayer
+ *
+ * @deprecated Use ServiceLayerPlugin instead.
  */
-class Plugin extends BasePlugin
+class Plugin extends ServiceLayerPlugin
 {
-    /**
-     * @var string|null
-     */
-    protected ?string $name = 'Burzum/CakeServiceLayer';
-
-    /**
-     * @var bool
-     */
-    protected bool $routesEnabled = false;
-
-    /**
-     * @var bool
-     */
-    protected bool $middlewareEnabled = false;
-
-    /**
-     * Add migrations commands.
-     *
-     * @param \Cake\Console\CommandCollection $collection The command collection to update
-     * @return \Cake\Console\CommandCollection
-     */
-    public function console(CommandCollection $collection): CommandCollection
-    {
-        if (class_exists(SimpleBakeCommand::class)) {
-            $commands = $collection->discoverPlugin($this->getName());
-
-            return $collection->addMany($commands);
-        }
-
-        return $collection;
-    }
 }
